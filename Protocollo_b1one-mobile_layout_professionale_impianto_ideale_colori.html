@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protocollo B1One Mobile</title>
+  <style>
+    :root {
+      --accent: #0056b3;
+      --light-bg: #f4f6f8;
+      --white: #ffffff;
+      --gray: #dfe4ea;
+      --font: 'Segoe UI', 'Roboto', sans-serif;
+    }
+    body {
+      font-family: var(--font);
+      margin: 0;
+      background: var(--light-bg);
+      color: #333;
+    }
+    header {
+      background: linear-gradient(90deg, var(--accent), #007acc);
+      color: white;
+      padding: 30px 0;
+      text-align: center;
+      border-bottom: 3px solid #003d80;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    header p {
+      font-size: 15px;
+      font-style: italic;
+      margin-top: 5px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px 30px;
+      background: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    }
+    h2 {
+      color: var(--accent);
+      text-align: center;
+      margin-top: 20px;
+      font-size: 22px;
+    }
+    .form-group label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 4px;
+      margin-bottom: 16px;
+      border: 1px solid var(--gray);
+      border-radius: 6px;
+      background: #fafafa;
+      font-size: 15px;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 20px 0 10px;
+    }
+    button {
+      padding: 10px 22px;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    #elaboraBtn { background-color: #28a745; color: white; }
+    #resetBtn { background-color: #dc3545; color: white; }
+    #pdfBtn { background-color: #007bff; color: white; }
+    button:hover { opacity: 0.9; }
+
+    .impianto-card {
+      background: #fdfdfd;
+      border-left: 5px solid var(--accent);
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .impianto-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+    .collapse-btn {
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .result-row {
+      background: #f9f9f9;
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .result-content {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .result-block {
+      font-size: 15px;
+    }
+    .dente {
+      font-weight: bold;
+      font-size: 17px;
+    }
+    .densita {
+      font-weight: bold;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      padding: 10px;
+      background: #f4f6f8;
+      margin: 0;
+      max-width: 100%;
+    }
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+    h3 {
+      text-align: center;
+      color: blue;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      margin-top: 0;
+      font-style: italic;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px; /* Aumenta dimensione input per mobile */
+    }
+    .button-container {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    button {
+      flex: 1;
+      padding: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    #elaboraBtn {
+      background-color: #4CAF50;
+      color: white;
+    }
+    #resetBtn {
+      background-color: #f44336;
+      color: white;
+    }
+    #output {
+      margin-top: 20px;
+    }
+    .result-row {
+      background: #fff;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .dente {
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    .densita {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .result-block {
+      font-size: 14px;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .impianto-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .impianto-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+    }
+    .impianto-title {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .nota {
+      font-size: 11px;
+      color: #666;
+      font-style: italic;
+      margin-top: 2px;
+      margin-bottom: 10px;
+    }
+    .collapse-btn {
+      background: none;
+      border: none;
+      color: #2196F3;
+      cursor: pointer;
+      font-size: 22px;
+      padding: 0;
+    }
+    .hidden {
+      display: none;
+    }
+  
+    #pdfBtn {
+      background-color: #2196F3;
+      color: white;
+    }
+    </style>
+    
+</head>
+<body>
+
+<header><h1>Protocollo B1 One</h1><p>Ideato dal Dr. Maurizio Monaco</p></header>
+<div class="container">
+
+<div class="form-group">
+  <label for="nome">Cognome e Nome del paziente:</label>
+  <input type="text" id="nome" placeholder="Inserisci cognome e nome">
+</div>
+
+<div class="form-group">
+  <label for="impianti">Numero di impianti:</label>
+  <select id="impianti" onchange="creaCampiImpianti()">
+    <option value="">-- Seleziona --</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select>
+</div>
+
+<div id="impianti-container"></div>
+
+<div class="button-container">
+  <button id="elaboraBtn" onclick="elabora()">ELABORA</button>
+  <button id="resetBtn" onclick="resetta()">RESET</button>
+  <button id="pdfBtn" onclick="esportaPDF()">ESPORTA PDF</button>
+</div>
+
+<div id="output"></div>
+
+<script>
+const corpoApiceData = {
+  "2.7|High": { corpo: "2,3", apice: "1,3" },
+  "3.2|High": { corpo: "2,5", apice: "1,8" },
+  "3.7|High": { corpo: "3,0", apice: "2,0" },
+  "3.7|Medium": { corpo: "2,9", apice: "2,0" },
+  "3.7|Low": { corpo: "2,3", apice: "2,0" },
+  "4.2|High": { corpo: "3,5", apice: "2,3" },
+  "4.2|Medium": { corpo: "3,4", apice: "2,3" },
+  "4.2|Low": { corpo: "2,8", apice: "2,3" },
+  "4.8|Medium": { corpo: "4,0", apice: "2,9" },
+  "4.8|Low": { corpo: "3,4", apice: "2,9" },
+};
+
+function getCorpoApice(diametro, b1one) {
+  const key = `${diametro}|${b1one}`;
+  if (corpoApiceData[key]) {
+    const { corpo, apice } = corpoApiceData[key];
+    return ` (corpo Ø${corpo} apice Ø${apice})`;
+  }
+  return "";
+}
+
+function creaCampiImpianti() {
+  const num = document.getElementById('impianti').value;
+  const container = document.getElementById('impianti-container');
+  container.innerHTML = '';
+  
+  if (!num) return;
+
+  for (let i = 0; i < num; i++) {
+    const card = document.createElement('div');
+    card.className = 'impianto-card';
+    
+    // Header con funzionalità di collapse
+    const header = document.createElement('div');
+    header.className = 'impianto-header';
+    
+    const title = document.createElement('div');
+    title.className = 'impianto-title';
+    title.textContent = `Impianto ${i+1}`;
+    
+    const collapseBtn = document.createElement('button');
+    collapseBtn.className = 'collapse-btn';
+    collapseBtn.textContent = '−';
+    collapseBtn.onclick = function() {
+      const content = this.parentNode.nextElementSibling;
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        this.textContent = '−';
+      } else {
+        content.classList.add('hidden');
+        this.textContent = '+';
+      }
+    };
+    
+    header.appendChild(title);
+    header.appendChild(collapseBtn);
+    card.appendChild(header);
+    
+    // Contenuto della card
+    const content = document.createElement('div');
+    content.className = 'impianto-content';
+    content.innerHTML = `
+      <div class="form-group">
+        <label for="dente_${i}">Dente:</label>
+        <select id="dente_${i}">
+          <option value="">-- Seleziona --</option>
+          ${[11,12,13,14,15,16,17,18,21,22,23,24,25,26,27,28,31,32,33,34,35,36,37,38,41,42,43,44,45,46,47,48].map(n => `<option value="${n}">${n}</option>`).join('')}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="hu_${i}">Hounsfield:</label>
+        <input type="number" id="hu_${i}" placeholder="Valore HU">
+      </div>
+
+      <div class="form-group">
+        <label for="carico_${i}">Carico immediato?</label>
+        <select id="carico_${i}">
+          <option value="compresso">Sì</option>
+          <option value="non compresso">No</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="post_${i}">Post-estrattivo?</label>
+        <select id="post_${i}">
+          <option value="si">Sì</option>
+          <option value="no">No</option>
+        </select>
+        <div class="nota">In presenza di una radice in posizione impianto il valore HU deve essere controllato (per sovrastima del valore)</div>
+      </div>
+
+      <div class="form-group">
+        <label for="b1one_${i}">B1One:</label>
+        <select id="b1one_${i}" onchange="aggiornaOpzioniB1One(${i})">
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="diametro_${i}">Diametro (mm):</label>
+        <select id="diametro_${i}" onchange="aggiornaTutto(${i})">
+          <option value="2.7">2.7</option>
+          <option value="3.2">3.2</option>
+          <option value="3.7">3.7</option>
+          <option value="4.2">4.2</option>
+          <option value="4.8">4.8</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="lunghezza_${i}">Lunghezza (mm):</label>
+        <select id="lunghezza_${i}">
+          <option value="6">6</option>
+          <option value="8">8</option>
+          <option value="10">10</option>
+          <option value="12">12</option>
+          <option value="14">14</option>
+          <option value="15.5">15.5</option>
+          <option value="17">17</option>
+        </select>
+      </div>
+    `;
+    
+    card.appendChild(content);
+    container.appendChild(card);
+  }
+  
+  // Inizializza le opzioni per tutti gli impianti creati
+  for (let i = 0; i < num; i++) {
+    aggiornaTutto(i);
+  }
+}
+
+function aggiornaOpzioniB1One(index) {
+  // Questa funzione sarà implementata se necessario
+  const b1oneSelect = document.getElementById(`b1one_${index}`);
+  const diametroSelect = document.getElementById(`diametro_${index}`);
+  
+  if (!b1oneSelect || !diametroSelect) return;
+  
+  const diametro = diametroSelect.value;
+  const b1oneValue = b1oneSelect.value;
+  
+  // Restrizioni per diametro 4.8
+  if (diametro === '4.8') {
+    // Per 4.8, permettiamo solo Medium e Low
+    if (b1oneValue === 'High') {
+      b1oneSelect.value = 'Medium';
+    }
+    
+    // Disabilita l'opzione High
+    for (let opt of b1oneSelect.options) {
+      if (opt.value === 'High') {
+        opt.disabled = true;
+      } else {
+        opt.disabled = false;
+      }
+    }
+  } else {
+    // Per tutti gli altri diametri, abilita tutte le opzioni
+    for (let opt of b1oneSelect.options) {
+      opt.disabled = false;
+    }
+  }
+}
+
+function aggiornaTutto(index) {
+  aggiornaOpzioniB1One(index);
+  aggiornaOpzioniLunghezza(index);
+}
+
+function aggiornaOpzioniLunghezza(index) {
+  const diametroSelect = document.getElementById(`diametro_${index}`);
+  const lunghezzaSelect = document.getElementById(`lunghezza_${index}`);
+  
+  if (!diametroSelect || !lunghezzaSelect) return;
+  
+  const diametro = diametroSelect.value;
+  const currentValue = lunghezzaSelect.value;
+  
+  // Resetta le opzioni
+  lunghezzaSelect.innerHTML = '';
+  
+  if (diametro === '2.7' || diametro === '3.2') {
+    // Per 2.7 e 3.2 mostra solo lunghezze da 10mm in su
+    lunghezzaSelect.innerHTML += `<option value="10">10</option>`;
+    lunghezzaSelect.innerHTML += `<option value="12">12</option>`;
+    lunghezzaSelect.innerHTML += `<option value="14">14</option>`;
+    lunghezzaSelect.innerHTML += `<option value="15.5">15.5</option>`;
+    lunghezzaSelect.innerHTML += `<option value="17">17</option>`;
+    
+    // Se era selezionato un valore inferiore a 10, passa a 10
+    if (currentValue < 10) {
+      lunghezzaSelect.value = '10';
+    } else {
+      // Cerca di ripristinare il valore precedente, se disponibile
+      const optionExists = Array.from(lunghezzaSelect.options).some(option => option.value === currentValue);
+      lunghezzaSelect.value = optionExists ? currentValue : '10';
+    }
+  } else if (diametro === '3.7') {
+    // Per 3.7 mostra lunghezze da 8mm in su
+    lunghezzaSelect.innerHTML += `<option value="8">8</option>`;
+    lunghezzaSelect.innerHTML += `<option value="10">10</option>`;
+    lunghezzaSelect.innerHTML += `<option value="12">12</option>`;
+    lunghezzaSelect.innerHTML += `<option value="14">14</option>`;
+    lunghezzaSelect.innerHTML += `<option value="15.5">15.5</option>`;
+    lunghezzaSelect.innerHTML += `<option value="17">17</option>`;
+    
+    // Se era selezionato un valore inferiore a 8, passa a 8
+    if (currentValue < 8) {
+      lunghezzaSelect.value = '8';
+    } else {
+      // Cerca di ripristinare il valore precedente, se disponibile
+      const optionExists = Array.from(lunghezzaSelect.options).some(option => option.value === currentValue);
+      lunghezzaSelect.value = optionExists ? currentValue : '8';
+    }
+  } else {
+    // Per gli altri diametri (4.2 e 4.8) mostra tutte le lunghezze
+    lunghezzaSelect.innerHTML += `<option value="6">6</option>`;
+    lunghezzaSelect.innerHTML += `<option value="8">8</option>`;
+    lunghezzaSelect.innerHTML += `<option value="10">10</option>`;
+    lunghezzaSelect.innerHTML += `<option value="12">12</option>`;
+    lunghezzaSelect.innerHTML += `<option value="14">14</option>`;
+    lunghezzaSelect.innerHTML += `<option value="15.5">15.5</option>`;
+    lunghezzaSelect.innerHTML += `<option value="17">17</option>`;
+    
+    // Ripristina il valore precedente
+    // Cerca di ripristinare il valore precedente, se disponibile
+    const optionExists = Array.from(lunghezzaSelect.options).some(option => option.value === currentValue);
+    lunghezzaSelect.value = optionExists ? currentValue : '6';
+  }
+}
+
+function getDensitaColor(densita) {
+  if (densita.includes('D1') && !densita.includes('D2')) return 'red';
+  if (densita.includes('D2') && !densita.includes('D1')) return 'red';
+  if (densita.includes('D3') && densita.includes('D2')) return 'darkorange';
+  if (densita.includes('D3') && densita.includes('D4')) return 'green';
+  if (densita.includes('D2') && densita.includes('D1')) return 'lightcoral';
+  if (densita.includes('D3') && !densita.includes('D2') && !densita.includes('D4')) return 'lightsalmon';
+  if (densita.includes('D4')) return 'lightgreen';
+  return 'black';
+}
+
+function getB1OneColor(tipo) {
+  if (tipo === 'High') return 'red';
+  if (tipo === 'Medium') return 'orange';
+  if (tipo === 'Low') return 'green';
+  return 'black';
+}
+
+function calcolaPreparazione(hu, carico, b1one) {
+  // Per impianti B1One High 3.7mm
+  if (b1one === 'High') {
+    if (hu > 1250) return carico === 'compresso' ? { densita: 'D1', fresa: '3.4', prep: 'Completa' } : { densita: 'D1', fresa: '3.7', prep: 'Completa' };
+    if (hu >= 1150) return { densita: 'D2 → D1', fresa: '3.4', prep: 'Completa' };
+    if (hu >= 850) return carico === 'compresso' ? { densita: 'D2', fresa: '3.2', prep: 'Completa' } : { densita: 'D2', fresa: '3.4', prep: 'Completa' };
+    if (hu >= 700) return carico === 'compresso' ? { densita: 'D3 → D2', fresa: '3.2', prep: 'SottopreparazioneØ in altezza (Ø3.2 –2 mm, Ø2.3 completa)' } : { densita: 'D3 → D2', fresa: '3.2', prep: 'Completa' };
+    if (hu >= 500) return carico === 'compresso' ? { densita: 'D3', fresa: '3.0', prep: 'Completa' } : { densita: 'D3', fresa: '3.2', prep: 'Completa' };
+    if (hu >= 300) return carico === 'compresso' ? { densita: 'D3 → D4', fresa: '2.8', prep: 'SottopreparazioneØ in altezza (Ø2.8 –2 mm, Ø2.0 completa)' } : { densita: 'D3 → D4', fresa: '3.0', prep: 'Completa' };
+    return carico === 'compresso' ? { densita: 'D4', fresa: '2.3', prep: 'SottopreparazioneØ in altezza (Ø2.3 –2 mm, Ø1.7 completa)' } : { densita: 'D4', fresa: '2.3', prep: 'Completa' };
+  }
+  // Per impianti B1One Medium 3.7mm
+  else if (b1one === 'Medium') {
+    if (hu > 1250) return { densita: 'D1', fresa: '3.7', prep: 'Completa' };
+    if (hu >= 1150) return carico === 'compresso' ? { densita: 'D2 → D1', fresa: '3.4', prep: 'Completa' } : { densita: 'D2 → D1', fresa: '3.7', prep: 'Completa' };
+    if (hu >= 850) return carico === 'compresso' ? { densita: 'D2', fresa: '3.2', prep: 'Completa' } : { densita: 'D2', fresa: '3.4', prep: 'Completa' };
+    if (hu >= 700) return carico === 'compresso' ? { densita: 'D3 → D2', fresa: '3.2', prep: 'SottopreparazioneØ in altezza (Ø3.2 –2 mm, Ø2.3 completa)' } : { densita: 'D3 → D2', fresa: '3.2', prep: 'Completa' };
+    if (hu >= 500) return carico === 'compresso' ? { densita: 'D3', fresa: '3.0', prep: 'Completa' } : { densita: 'D3', fresa: '3.2', prep: 'Completa' };
+    if (hu >= 300) return carico === 'compresso' ? { densita: 'D3 → D4', fresa: '2.8', prep: 'SottopreparazioneØ in altezza (Ø2.8 –2 mm, Ø2.0 completa)' } : { densita: 'D3 → D4', fresa: '3.0', prep: 'Completa' };
+    return carico === 'compresso' ? { densita: 'D4', fresa: '2.3', prep: 'SottopreparazioneØ in altezza (Ø2.3 –2 mm, Ø1.7 completa)' } : { densita: 'D4', fresa: '2.3', prep: 'Completa' };
+  }
+  // Per impianti B1One Low 3.7mm
+  else if (b1one === 'Low') {
+    if (hu > 1250) return { densita: 'D1', fresa: '3.7', prep: 'Completa' };
+    if (hu >= 1150) return { densita: 'D2 → D1', fresa: '3.7', prep: 'Completa' };
+    if (hu >= 850) return { densita: 'D2', fresa: '3.7', prep: 'Completa' };
+    if (hu >= 700) return carico === 'compresso' ? { densita: 'D3 → D2', fresa: '3.2', prep: 'Completa' } : { densita: 'D3 → D2', fresa: '3.4', prep: 'Completa' };
+    if (hu >= 500) return carico === 'compresso' ? { densita: 'D3', fresa: '3.0', prep: 'Completa' } : { densita: 'D3', fresa: '3.2', prep: 'Completa' };
+    if (hu >= 300) return carico === 'compresso' ? { densita: 'D3 → D4', fresa: '2.8', prep: 'SottopreparazioneØ in altezza (Ø2.8 –2 mm, Ø2.0 completa)' } : { densita: 'D3 → D4', fresa: '2.8', prep: 'Completa' };
+    return carico === 'compresso' ? { densita: 'D4', fresa: '2.3', prep: 'SottopreparazioneØ in altezza (Ø2.3 –2 mm, Ø1.7 completa)' } : { densita: 'D4', fresa: '2.3', prep: 'Completa' };
+  }
+}
+
+function calcolaPreparazione42High(hu, carico) {
+  if (hu > 1250) return carico === 'compresso' ? { densita: 'D1', fresa: '4.0', prep: 'Completa' } : { densita: 'D1', fresa: '4.2', prep: 'Completa' };
+  if (hu >= 1150) return { densita: 'D2 → D1', fresa: '4.0', prep: 'Completa' };
+  if (hu >= 850) return { densita: 'D2', fresa: '3.8', prep: 'Completa' };
+  if (hu >= 700) return carico === 'compresso' ? { densita: 'D3 → D2', fresa: '3.6', prep: 'SottopreparazioneØ (Ø3.6 –2 mm, Ø3.0 completa)' } : { densita: 'D3 → D2', fresa: '3.6', prep: 'Completa' };
+  if (hu >= 500) return carico === 'compresso' ? { densita: 'D3', fresa: '3.4', prep: 'Completa' } : { densita: 'D3', fresa: '3.6', prep: 'SottopreparazioneØ (Ø3.6 –2 mm, Ø3.0 completa)' };
+  if (hu >= 300) return carico === 'compresso' ? { densita: 'D3 → D4', fresa: '3.0', prep: 'SottopreparazioneØ (Ø3.0 –2 mm, Ø2.3 completa)' } : { densita: 'D3 → D4', fresa: '3.4', prep: 'Completa' };
+  return { densita: 'D4', fresa: '2.8', prep: 'Completa' };
+}
+
+function calcolaPreparazione42Medium(hu, carico) {
+  if (hu > 1250) return { densita: 'D1', fresa: '4.2', prep: 'Completa' };
+  if (hu >= 1150) return carico === 'compresso' ? { densita: 'D2 → D1', fresa: '4.0', prep: 'Completa' } : { densita: 'D2 → D1', fresa: '4.2', prep: 'Completa' };
+  if (hu >= 850) return carico === 'compresso' ? { densita: 'D2', fresa: '3.8', prep: 'Completa' } : { densita: 'D2', fresa: '4.0', prep: 'Completa' };
+  if (hu >= 700) return carico === 'compresso' ? { densita: 'D3 → D2', fresa: '3.6', prep: 'SottopreparazioneØ (Ø3.6 –2 mm, Ø3.0 completa)' } : { densita: 'D3 → D2', fresa: '3.8', prep: 'Completa' };
+  if (hu >= 500) return carico === 'compresso' ? { densita: 'D3', fresa: '3.4', prep: 'Completa' } : { densita: 'D3', fresa: '3.6', prep: 'SottopreparazioneØ (Ø3.6 –2 mm, Ø3.0 completa)' };
+  if (hu >= 300) return carico === 'compresso' ? { densita: 'D3 → D4', fresa: '3.0', prep: 'SottopreparazioneØ (Ø3.0 –2 mm, Ø2.3 completa)' } : { densita: 'D3 → D4', fresa: '3.4', prep: 'Completa' };
+  return carico === 'compresso' ? { densita: 'D4', fresa: 'F.lettrice', prep: 'Completa' } : { densita: 'D4', fresa: '2.8', prep: 'Completa' };
+}
+
+function calcolaPreparazione42Low(hu, carico) {
+  if (hu > 1250) return { densita: 'D1', fresa: '4.2', prep: 'Completa' };
+  if (hu >= 1150) return { densita: 'D2 → D1', fresa: '4.2', prep: 'Completa' };
+  if (hu >= 850) return { densita: 'D2', fresa: '4.0', prep: 'Completa' };
+  if (hu >= 700) return carico === 'compresso' ? { densita: 'D3 → D2', fresa: '3.6', prep: 'SottopreparazioneØ in altezza (Ø3.6 –2 mm, Ø3.0 completa)' } : { densita: 'D3 → D2', fresa: '3.8', prep: 'Completa' };
+  if (hu >= 500) return carico === 'compresso' ? { densita: 'D3', fresa: '3.2', prep: 'Completa' } : { densita: 'D3', fresa: '3.6', prep: 'SottopreparazioneØ in altezza (Ø3.6 –2 mm, Ø3.0 completa)' };
+  if (hu >= 300) return carico === 'compresso' ? { densita: 'D3 → D4', fresa: 'F.lettrice', prep: 'Completa' } : { densita: 'D3 → D4', fresa: '3.2', prep: 'Completa' };
+  return carico === 'compresso' ? { densita: 'D4', fresa: '2.3', prep: 'Completa' } : { densita: 'D4', fresa: 'F.lettrice', prep: 'Completa' };
+}
+
+function calcolaPreparazione48Medium(hu, carico) {
+  if (hu > 1250) return { densita: 'D1', fresa: '4.8', prep: 'Completa' };
+  if (hu >= 1150) return { densita: 'D2 → D1', fresa: '4.8', prep: 'Completa' };
+  if (hu >= 850) return carico === 'compresso' ? { densita: 'D2', fresa: '4.4', prep: 'Completa' } : { densita: 'D2', fresa: '4.8', prep: 'Completa' };
+  if (hu >= 700) return carico === 'compresso' ? { densita: 'D3 → D2', fresa: '4.4', prep: 'SottopreparazioneØ in altezza (Ø4.4 –2 mm, Ø3.0 completa)' } : { densita: 'D3 → D2', fresa: '4.4', prep: 'Completa' };
+  if (hu >= 500) return carico === 'compresso' ? { densita: 'D3', fresa: '4.2', prep: 'Completa' } : { densita: 'D3', fresa: '4.4', prep: 'SottopreparazioneØ in altezza (Ø4.4 –2 mm, Ø3.0 completa)' };
+  if (hu >= 300) return carico === 'compresso' ? { densita: 'D3 → D4', fresa: '3.8', prep: 'SottopreparazioneØ in altezza (Ø3.8 –2 mm, Ø3.0 completa)' } : { densita: 'D3 → D4', fresa: '4.2', prep: 'Completa' };
+  return carico === 'compresso' ? { densita: 'D4', fresa: '3.6', prep: 'SottopreparazioneØ in altezza (Ø3.6 –2 mm, Ø3.0 completa)' } : { densita: 'D4', fresa: '3.8', prep: 'Completa' };
+}
+
+function calcolaPreparazione48Low(hu, carico) {
+  if (hu > 1250) return { densita: 'D1', fresa: '4.8', prep: 'Completa' };
+  if (hu >= 1150) return { densita: 'D2 → D1', fresa: '4.8', prep: 'Completa' };
+  if (hu >= 850) return carico === 'compresso' ? { densita: 'D2', fresa: '4.4', prep: 'Completa' } : { densita: 'D2', fresa: '4.8', prep: 'Completa' };
+  if (hu >= 700) return carico === 'compresso' ? { densita: 'D3 → D2', fresa: '4.2', prep: 'SottopreparazioneØ in altezza (Ø4.4 –2 mm, Ø3.0 completa)' } : { densita: 'D3 → D2', fresa: '4.4', prep: 'Completa' };
+  if (hu >= 500) return carico === 'compresso' ? { densita: 'D3', fresa: '3.8', prep: 'Completa' } : { densita: 'D3', fresa: '4.2', prep: 'SottopreparazioneØ in altezza (Ø4.4 –2 mm, Ø3.0 completa)' };
+  if (hu >= 300) return carico === 'compresso' ? { densita: 'D3 → D4', fresa: '3.6', prep: 'SottopreparazioneØ in altezza (Ø3.6 –2 mm, Ø3.0 completa)' } : { densita: 'D3 → D4', fresa: '3.8', prep: 'Completa' };
+  return carico === 'compresso' ? { densita: 'D4', fresa: '3.4', prep: 'SottopreparazioneØ in altezza (Ø3.4 –2 mm, Ø3.0 completa)' } : { densita: 'D4', fresa: '3.6', prep: 'Completa' };
+}
+
+function calcolaPreparazione27High(hu, carico) {
+  if (hu > 1250) return carico === 'compresso' ? { densita: 'D1', fresa: '2.0', prep: 'Completa' } : { densita: 'D1', fresa: '2.3', prep: 'Completa' };
+  if (hu >= 1150) return carico === 'compresso' ? { densita: 'D2 → D1', fresa: '2.0', prep: 'Completa' } : { densita: 'D2 → D1', fresa: '2.3', prep: 'Completa' };
+  if (hu >= 850) return carico === 'compresso' ? { densita: 'D2', fresa: '2.0', prep: 'SottopreparazioneØ in altezza (Ø2.0 –2 mm, Ø1,7 completa)' } : { densita: 'D2', fresa: '2.0', prep: 'Completa' };
+  if (hu >= 700) return carico === 'compresso' ? { densita: 'D3 → D2', fresa: '1.7', prep: 'Completa' } : { densita: 'D3 → D2', fresa: '2.0', prep: 'Completa' };
+  if (hu >= 500) return { densita: 'D3', fresa: '1.7', prep: 'Completa' };
+  if (hu >= 300) return carico === 'compresso' ? { densita: 'D3 → D4', fresa: '1.7', prep: 'Sottopreparazione in altezza (–1 mm)' } : { densita: 'D3 → D4', fresa: '1.7', prep: 'Completa' };
+  return { densita: 'D4', fresa: '1.7', prep: '2–3 mm meno in profondità' };
+}
+
+function calcolaPreparazione32High(hu, carico) {
+  if (hu > 1250) return carico === 'compresso' ? { densita: 'D1', fresa: '2.3', prep: 'Completa' } : { densita: 'D1', fresa: '2.8', prep: 'Completa' };
+  if (hu >= 1150) return { densita: 'D2 → D1', fresa: '2.3', prep: 'Completa' };
+  if (hu >= 850) return carico === 'compresso' ? { densita: 'D2', fresa: '2.0', prep: 'Completa' } : { densita: 'D2', fresa: '2.3', prep: 'Completa' };
+  if (hu >= 700) return { densita: 'D3 → D2', fresa: '2.0', prep: 'Completa' };
+  if (hu >= 500) return carico === 'compresso' ? { densita: 'D3', fresa: '1.7', prep: 'Completa' } : { densita: 'D3', fresa: '2.0', prep: 'Completa' };
+  if (hu >= 300) return carico === 'compresso' ? { densita: 'D3 → D4', fresa: '1.7', prep: '2–3 mm meno in profondità' } : { densita: 'D3 → D4', fresa: '1.7', prep: 'Completa' };
+  return { densita: 'D4', fresa: '1.7', prep: carico === 'compresso' ? '2–3 mm meno in profondità' : 'Completa' };
+}
+
+
+function getImpiantoIdeale(diametro, densita) {
+  const tipo = (() => {
+    if (["3.7", "4.2", "4.8"].includes(diametro)) {
+      if (["D1", "D2", "D1→D1"].includes(densita)) return "High";
+      if (["D3", "D3→D2"].includes(densita)) return "Medium";
+      if (["D4", "D3→D4"].includes(densita)) return "Low";
+    }
+    return null;
+  })();
+
+  if (!tipo) return "";
+
+  const colore = {
+    High: "#e74c3c",
+    Medium: "#ff8800",
+    Low: "#28a745"
+  }[tipo];
+
+  return `<div class="result-block"><strong>Impianto ideale:</strong> <span style="color:${colore}; font-weight:bold;">B1One ${tipo} (Ø${diametro})</span></div>`;
+}
+
+function elabora() {
+  // Verifica se tutti i campi obbligatori sono compilati
+  const nome = document.getElementById('nome').value;
+  if (!nome.trim()) {
+    alert('Inserire Cognome e Nome del paziente');
+    return;
+  }
+
+  const num = document.getElementById('impianti').value;
+  if (!num) {
+    alert('Selezionare il numero di impianti');
+    return;
+  }
+
+  // Verifica che tutti gli impianti abbiano dente e hounsfield compilati
+  for (let i = 0; i < num; i++) {
+    const dente = document.getElementById(`dente_${i}`).value;
+    const hu = document.getElementById(`hu_${i}`).value;
+    
+    if (!dente) {
+      alert(`Selezionare il numero del dente per l'impianto ${i+1}`);
+      return;
+    }
+    
+    if (!hu) {
+      alert(`Inserire il valore Hounsfield per l'impianto ${i+1}`);
+      return;
+    }
+  }
+
+  // Procedi con l'elaborazione se tutti i campi obbligatori sono compilati
+  let output = `<h2 style="text-align:center; margin-bottom:20px;">Risultati per: ${nome}</h2>`;
+
+  for (let i = 0; i < num; i++) {
+    const dente = document.getElementById(`dente_${i}`).value;
+    const hu = parseInt(document.getElementById(`hu_${i}`).value);
+    const carico = document.getElementById(`carico_${i}`).value;
+    const post = document.getElementById(`post_${i}`).value;
+    const b1one = document.getElementById(`b1one_${i}`).value;
+    const diametro = document.getElementById(`diametro_${i}`).value;
+    const lunghezza = document.getElementById(`lunghezza_${i}`).value;
+
+    let prep;
+    if (diametro === '2.7') {
+      prep = calcolaPreparazione27High(hu, carico);
+    } else if (diametro === '3.2') {
+      prep = calcolaPreparazione32High(hu, carico);
+    } else if (diametro === '3.7') {
+      prep = calcolaPreparazione(hu, carico, b1one);
+    } else if (diametro === '4.2') {
+      if (b1one === 'High') {
+        prep = calcolaPreparazione42High(hu, carico);
+      } else if (b1one === 'Medium') {
+        prep = calcolaPreparazione42Medium(hu, carico);
+      } else if (b1one === 'Low') {
+        prep = calcolaPreparazione42Low(hu, carico);
+      }
+    } else if (diametro === '4.8') {
+      if (b1one === 'Medium') {
+        prep = calcolaPreparazione48Medium(hu, carico);
+      } else if (b1one === 'Low') {
+        prep = calcolaPreparazione48Low(hu, carico);
+      } else {
+        // Fallback nel caso improbabile che b1one sia High per 4.8
+        prep = calcolaPreparazione48Medium(hu, carico);
+      }
+    }
+
+    const coloreDensita = getDensitaColor(prep.densita);
+    const coloreB1One = getB1OneColor(b1one);
+
+    output += `
+      <div class="result-row">
+        <div class="result-content">
+          <div class="dente">Dente: ${dente}</div>
+          <div class="densita" style="color:${coloreDensita}; text-shadow:1px 1px 2px gray;">Densità: ${prep.densita}</div>
+          ${getImpiantoIdeale(diametro, prep.densita)}<div class="result-block"><strong>Post-estrattivo:</strong> ${post === 'si' ? 'Sì' : 'No'}</div>
+          <div class="result-block"><strong>B1One:</strong> <span style="color:${coloreB1One}; font-weight:bold;">${b1one} Ø${diametro} x ${lunghezza}mm${getCorpoApice(diametro, b1one)}</span></div>
+          <div class="result-block"><strong>Carico immediato:</strong> ${carico === 'compresso' ? 'Sì' : 'No'}</div>
+          <div class="result-block"><strong>Fresa Finale Ø:</strong> ${prep.fresa} mm</div>
+          <div class="result-block"><strong>Tipo Preparazione:</strong> ${prep.prep}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  document.getElementById('output').innerHTML = output;
+  
+  // Scorri automaticamente ai risultati
+  document.getElementById('output').scrollIntoView({behavior: 'smooth'});
+}
+
+function resetta() {
+  document.getElementById('nome').value = '';
+  document.getElementById('impianti').value = '';
+  document.getElementById('impianti-container').innerHTML = '';
+  document.getElementById('output').innerHTML = '';
+}
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+async function esportaPDF() {
+  const nome = document.getElementById('nome').value || 'paziente';
+  const output = document.getElementById('output');
+
+  if (!output.innerHTML.trim()) {
+    alert("Non ci sono risultati da esportare. Premi 'ELABORA' prima.");
+    return;
+  }
+
+  html2canvas(output, { scale: 2 }).then(canvas => {
+    const imgData = canvas.toDataURL('image/jpeg', 1.0);
+    const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const pageHeight = pdf.internal.pageSize.getHeight();
+    const imgProps = pdf.getImageProperties(imgData);
+    const imgHeight = (imgProps.height * pageWidth) / imgProps.width;
+
+    let position = 0;
+
+    while (position < imgHeight) {
+      pdf.addImage(imgData, 'JPEG', 0, -position, pageWidth, imgHeight);
+      position += pageHeight;
+      if (position < imgHeight) pdf.addPage();
+    }
+
+    pdf.save(`Protocollo_B1One_${nome.replace(/\s+/g, '_')}.pdf`);
+  });
+}
+</script>
+</body>
+
+</html>
