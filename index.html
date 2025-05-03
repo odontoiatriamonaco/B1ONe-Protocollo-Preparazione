@@ -269,6 +269,19 @@
 <body>
 
 <header><h1>Protocollo B1 One</h1><p>Ideato dal Dr. Maurizio Monaco</p></header>
+
+<div style="position: absolute; top: 20px; right: 20px; z-index: 1000; background-color: #4CAF50; padding: 10px 15px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.2);">
+  <button onclick="mostraContatti()" style="background: none; border: none; color: white; font-size: 16px; font-weight: bold; cursor: pointer;">
+    📬 CONTATTI
+  </button>
+</div>
+
+<div id="finestraContatti" style="display:none; position: fixed; top: 20%; left: 50%; transform: translateX(-50%); background: white; border: 2px solid #007acc; padding: 20px 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.2); z-index: 9999; text-align: center;">
+  <h3>Contatti</h3>
+  <p>Per qualsiasi informazione o dubbio contattare:<br><strong>odontoiatria.monaco@gmail.com</strong></p>
+  <button onclick="nascondiContatti()" style="margin-top: 10px; padding: 6px 12px; background-color: #dc3545; color: white; border: none; border-radius: 4px;">Chiudi</button>
+</div>
+
 <div class="container">
 
 <div class="form-group">
@@ -733,7 +746,14 @@ function elabora() {
   }
 
   // Procedi con l'elaborazione se tutti i campi obbligatori sono compilati
-  let output = `<h2 style="text-align:center; margin-bottom:20px;">Risultati per: ${nome}</h2>`;
+  
+  // Aggiorna contatore impianti elaborati
+  let impiantiElaborati = parseInt(localStorage.getItem(impiantiKey)) || 0;
+  impiantiElaborati += parseInt(num);
+  localStorage.setItem(impiantiKey, impiantiElaborati);
+
+
+let output = `<h2 style="text-align:center; margin-bottom:20px;">Risultati per: ${nome}</h2>`;
 
   for (let i = 0; i < num; i++) {
     const dente = document.getElementById(`dente_${i}`).value;
@@ -883,6 +903,16 @@ function mostraAdmin() {
     </button>
   </a>
 </div>
+
+<script>
+function mostraContatti() {
+  document.getElementById('finestraContatti').style.display = 'block';
+}
+function nascondiContatti() {
+  document.getElementById('finestraContatti').style.display = 'none';
+}
+</script>
+
 </body>
 
 </html>
