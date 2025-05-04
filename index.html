@@ -403,8 +403,34 @@ function creaCampiImpianti() {
       </div>
 
       <div class="form-group">
-        <label for="hu_${i}">Hounsfield:</label>
-        <input type="number" id="hu_${i}" placeholder="Valore HU">
+        
+<label>Seleziona modalità input densità:</label>
+<select onchange="toggleModoInput(this, ${i})" style="margin-bottom: 10px;">
+  <option value="hu">Valore Hounsfield</option>
+  <option value="densita">Tipo di densità ossea</option>
+</select>
+<div id="hu_block_${i}">
+  <label for="hu_${i}">Hounsfield:</label>
+
+        
+<input type="number" id="hu_${i}" placeholder="Valore HU">
+</div>
+<div id="densita_block_${i}" style="display:none;">
+  <label for="densita_ossea_${i}">Tipo di densità ossea:</label>
+  
+<select id="densita_ossea_${i}" onchange="impostaHUdaDensita(${i})">
+  <option value="">-- seleziona --</option>
+  <option value="D1">D1</option>
+  <option value="D2_D1">D2 tendente a D1</option>
+  <option value="D2">D2</option>
+  <option value="D3_D2">D3 tendente a D2</option>
+  <option value="D3">D3</option>
+  <option value="D3_D4">D4 tendente a D3</option>
+  <option value="D4">D4</option>
+</select>
+
+</div>
+
       </div>
 
       <div class="form-group">
@@ -923,6 +949,40 @@ function mostraContatti() {
 function nascondiContatti() {
   const box = document.getElementById("finestraContatti");
   if (box) box.style.display = "none";
+}
+</script>
+
+
+<script>
+function toggleModoInput(select, i) {
+  const huBlock = document.getElementById(`hu_block_${i}`);
+  const densitaBlock = document.getElementById(`densita_block_${i}`);
+  if (select.value === "hu") {
+    huBlock.style.display = "block";
+    densitaBlock.style.display = "none";
+    document.getElementById(`densita_ossea_${i}`).value = "";
+  } else {
+    huBlock.style.display = "none";
+    densitaBlock.style.display = "block";
+    document.getElementById(`hu_${i}`).value = "";
+  }
+}
+
+function impostaHUdaDensita(i) {
+  const valore = document.getElementById(`densita_ossea_${i}`).value;
+  const campoHU = document.getElementById(`hu_${i}`);
+  
+  const mappa = {
+    "D1": 1300,
+    "D2_D1": 1200,
+    "D2": 1000,
+    "D3_D2": 775,
+    "D3": 600,
+    "D3_D4": 400,
+    "D4": 250,
+  };
+
+  campoHU.value = mappa[valore] || "";
 }
 </script>
 
