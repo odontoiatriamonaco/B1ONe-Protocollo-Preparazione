@@ -305,6 +305,9 @@
 <div id="impianti-container"></div>
 
 <div class="button-container">
+  <input type="file" id="fileInput" accept=".json" style="display:none" onchange="caricaDati(event)">
+  <button onclick="document.getElementById('fileInput').click()">📂 Carica Dati</button>
+  <button id="saveBtn" onclick="salvaDati()">💾 Salva Dati</button>
   <button id="elaboraBtn" onclick="elabora()">ELABORA</button>
   <button id="resetBtn" onclick="resetta()">RESET</button>
   <button id="pdfBtn" onclick="esportaPDF()">ESPORTA PDF</button>
@@ -856,6 +859,72 @@ function resetta() {
   document.getElementById('impianti-container').innerHTML = '';
   document.getElementById('output').innerHTML = '';
 }
+
+function salvaDati() {
+  const nome = document.getElementById('nome').value || 'paziente';
+  const num = document.getElementById('impianti').value;
+  if (!num || !document.getElementById('output').innerHTML.trim()) {
+    alert("Completa l'elaborazione prima di salvare.");
+    return;
+  }
+
+  const dati = {
+    paziente: nome,
+    impianti: []
+  };
+
+  for (let i = 0; i < num; i++) {
+    dati.impianti.push({
+      dente: document.getElementById(`dente_${i}`).value,
+      hu: document.getElementById(`hu_${i}`).value,
+      carico: document.getElementById(`carico_${i}`).value,
+      post: document.getElementById(`post_${i}`).value,
+      b1one: document.getElementById(`b1one_${i}`).value,
+      diametro: document.getElementById(`diametro_${i}`).value,
+      lunghezza: document.getElementById(`lunghezza_${i}`).value
+    });
+  }
+
+  const blob = new Blob([JSON.stringify(dati, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `Dati_${nome.replace(/\s+/g, "_")}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function caricaDati(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const dati = JSON.parse(e.target.result);
+      document.getElementById('nome').value = dati.paziente || '';
+      document.getElementById('impianti').value = dati.impianti.length;
+      creaCampiImpianti();
+
+      setTimeout(() => {
+        dati.impianti.forEach((impianto, i) => {
+          document.getElementById(`dente_${i}`).value = impianto.dente || '';
+          document.getElementById(`hu_${i}`).value = impianto.hu || '';
+          document.getElementById(`carico_${i}`).value = impianto.carico || '';
+          document.getElementById(`post_${i}`).value = impianto.post || '';
+          document.getElementById(`b1one_${i}`).value = impianto.b1one || '';
+          document.getElementById(`diametro_${i}`).value = impianto.diametro || '';
+          aggiornaTutto(i);
+          document.getElementById(`lunghezza_${i}`).value = impianto.lunghezza || '';
+        });
+      }, 100);
+    } catch (err) {
+      alert("Errore nel file caricato. Verifica che sia un file JSON valido.");
+    }
+  };
+  reader.readAsText(file);
+}
+
 </script>
 
 
@@ -929,6 +998,72 @@ function mostraAdmin() {
   document.getElementById("adminArea").style.display = "block";
 }
 
+
+function salvaDati() {
+  const nome = document.getElementById('nome').value || 'paziente';
+  const num = document.getElementById('impianti').value;
+  if (!num || !document.getElementById('output').innerHTML.trim()) {
+    alert("Completa l'elaborazione prima di salvare.");
+    return;
+  }
+
+  const dati = {
+    paziente: nome,
+    impianti: []
+  };
+
+  for (let i = 0; i < num; i++) {
+    dati.impianti.push({
+      dente: document.getElementById(`dente_${i}`).value,
+      hu: document.getElementById(`hu_${i}`).value,
+      carico: document.getElementById(`carico_${i}`).value,
+      post: document.getElementById(`post_${i}`).value,
+      b1one: document.getElementById(`b1one_${i}`).value,
+      diametro: document.getElementById(`diametro_${i}`).value,
+      lunghezza: document.getElementById(`lunghezza_${i}`).value
+    });
+  }
+
+  const blob = new Blob([JSON.stringify(dati, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `Dati_${nome.replace(/\s+/g, "_")}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function caricaDati(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const dati = JSON.parse(e.target.result);
+      document.getElementById('nome').value = dati.paziente || '';
+      document.getElementById('impianti').value = dati.impianti.length;
+      creaCampiImpianti();
+
+      setTimeout(() => {
+        dati.impianti.forEach((impianto, i) => {
+          document.getElementById(`dente_${i}`).value = impianto.dente || '';
+          document.getElementById(`hu_${i}`).value = impianto.hu || '';
+          document.getElementById(`carico_${i}`).value = impianto.carico || '';
+          document.getElementById(`post_${i}`).value = impianto.post || '';
+          document.getElementById(`b1one_${i}`).value = impianto.b1one || '';
+          document.getElementById(`diametro_${i}`).value = impianto.diametro || '';
+          aggiornaTutto(i);
+          document.getElementById(`lunghezza_${i}`).value = impianto.lunghezza || '';
+        });
+      }, 100);
+    } catch (err) {
+      alert("Errore nel file caricato. Verifica che sia un file JSON valido.");
+    }
+  };
+  reader.readAsText(file);
+}
+
 </script>
 
 
@@ -964,6 +1099,72 @@ function nascondiContatti() {
   const box = document.getElementById("finestraContatti");
   if (box) box.style.display = "none";
 }
+
+function salvaDati() {
+  const nome = document.getElementById('nome').value || 'paziente';
+  const num = document.getElementById('impianti').value;
+  if (!num || !document.getElementById('output').innerHTML.trim()) {
+    alert("Completa l'elaborazione prima di salvare.");
+    return;
+  }
+
+  const dati = {
+    paziente: nome,
+    impianti: []
+  };
+
+  for (let i = 0; i < num; i++) {
+    dati.impianti.push({
+      dente: document.getElementById(`dente_${i}`).value,
+      hu: document.getElementById(`hu_${i}`).value,
+      carico: document.getElementById(`carico_${i}`).value,
+      post: document.getElementById(`post_${i}`).value,
+      b1one: document.getElementById(`b1one_${i}`).value,
+      diametro: document.getElementById(`diametro_${i}`).value,
+      lunghezza: document.getElementById(`lunghezza_${i}`).value
+    });
+  }
+
+  const blob = new Blob([JSON.stringify(dati, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `Dati_${nome.replace(/\s+/g, "_")}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function caricaDati(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const dati = JSON.parse(e.target.result);
+      document.getElementById('nome').value = dati.paziente || '';
+      document.getElementById('impianti').value = dati.impianti.length;
+      creaCampiImpianti();
+
+      setTimeout(() => {
+        dati.impianti.forEach((impianto, i) => {
+          document.getElementById(`dente_${i}`).value = impianto.dente || '';
+          document.getElementById(`hu_${i}`).value = impianto.hu || '';
+          document.getElementById(`carico_${i}`).value = impianto.carico || '';
+          document.getElementById(`post_${i}`).value = impianto.post || '';
+          document.getElementById(`b1one_${i}`).value = impianto.b1one || '';
+          document.getElementById(`diametro_${i}`).value = impianto.diametro || '';
+          aggiornaTutto(i);
+          document.getElementById(`lunghezza_${i}`).value = impianto.lunghezza || '';
+        });
+      }, 100);
+    } catch (err) {
+      alert("Errore nel file caricato. Verifica che sia un file JSON valido.");
+    }
+  };
+  reader.readAsText(file);
+}
+
 </script>
 
 
@@ -998,6 +1199,72 @@ function impostaHUdaDensita(i) {
 
   campoHU.value = mappa[valore] || "";
 }
+
+function salvaDati() {
+  const nome = document.getElementById('nome').value || 'paziente';
+  const num = document.getElementById('impianti').value;
+  if (!num || !document.getElementById('output').innerHTML.trim()) {
+    alert("Completa l'elaborazione prima di salvare.");
+    return;
+  }
+
+  const dati = {
+    paziente: nome,
+    impianti: []
+  };
+
+  for (let i = 0; i < num; i++) {
+    dati.impianti.push({
+      dente: document.getElementById(`dente_${i}`).value,
+      hu: document.getElementById(`hu_${i}`).value,
+      carico: document.getElementById(`carico_${i}`).value,
+      post: document.getElementById(`post_${i}`).value,
+      b1one: document.getElementById(`b1one_${i}`).value,
+      diametro: document.getElementById(`diametro_${i}`).value,
+      lunghezza: document.getElementById(`lunghezza_${i}`).value
+    });
+  }
+
+  const blob = new Blob([JSON.stringify(dati, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `Dati_${nome.replace(/\s+/g, "_")}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function caricaDati(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const dati = JSON.parse(e.target.result);
+      document.getElementById('nome').value = dati.paziente || '';
+      document.getElementById('impianti').value = dati.impianti.length;
+      creaCampiImpianti();
+
+      setTimeout(() => {
+        dati.impianti.forEach((impianto, i) => {
+          document.getElementById(`dente_${i}`).value = impianto.dente || '';
+          document.getElementById(`hu_${i}`).value = impianto.hu || '';
+          document.getElementById(`carico_${i}`).value = impianto.carico || '';
+          document.getElementById(`post_${i}`).value = impianto.post || '';
+          document.getElementById(`b1one_${i}`).value = impianto.b1one || '';
+          document.getElementById(`diametro_${i}`).value = impianto.diametro || '';
+          aggiornaTutto(i);
+          document.getElementById(`lunghezza_${i}`).value = impianto.lunghezza || '';
+        });
+      }, 100);
+    } catch (err) {
+      alert("Errore nel file caricato. Verifica che sia un file JSON valido.");
+    }
+  };
+  reader.readAsText(file);
+}
+
 </script>
 
 </body>
