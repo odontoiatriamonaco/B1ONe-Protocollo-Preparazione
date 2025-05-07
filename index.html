@@ -66,12 +66,7 @@
       background: #fafafa;
       font-size: 15px;
     }
-    .button-container {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin: 20px 0 10px;
-    }
+    
     button {
       padding: 10px 22px;
       font-size: 15px;
@@ -172,11 +167,7 @@
       border-radius: 4px;
       font-size: 16px; /* Aumenta dimensione input per mobile */
     }
-    .button-container {
-      display: flex;
-      gap: 10px;
-      margin: 20px 0;
-    }
+    
     button {
       flex: 1;
       padding: 12px;
@@ -263,7 +254,31 @@
       background-color: #2196F3;
       color: white;
     }
-    </style>
+    
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+.button-container button,
+.button-container input[type="file"] + button {
+  flex: 1 1 45%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  min-width: 140px;
+}
+#elaboraBtn { background-color: #28a745; color: white; }
+#resetBtn { background-color: #dc3545; color: white; }
+#pdfBtn { background-color: #007bff; color: white; }
+#saveBtn { background-color: #ffc107; color: black; }
+
+</style>
     
 </head>
 <body>
