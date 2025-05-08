@@ -643,7 +643,7 @@ function calcolaPreparazione(hu, carico, b1one) {
   }
   // Per impianti B1One Medium 3.7mm
   else if (b1one === 'Medium') {
-    if (hu > 1250) return { densita: 'D1', fresa: '3.7', prep: 'Completa' };
+    if (hu > 1250) return { densita: 'D1', fresa: '3.4', prep: 'Completa' };
     if (hu >= 1150) return carico === 'compresso' ? { densita: 'D2 → D1', fresa: '3.4', prep: 'Completa' } : { densita: 'D2 → D1', fresa: '3.7', prep: 'Completa' };
     if (hu >= 850) return carico === 'compresso' ? { densita: 'D2', fresa: '3.2', prep: 'Completa' } : { densita: 'D2', fresa: '3.4', prep: 'Completa' };
     if (hu >= 700) return carico === 'compresso' ? { densita: 'D3 → D2', fresa: '3.2', prep: 'SottopreparazioneØ in altezza (Ø3.2 –2 mm, Ø2.3 completa)' } : { densita: 'D3 → D2', fresa: '3.2', prep: 'Completa' };
