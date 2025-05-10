@@ -1138,7 +1138,7 @@ const impiantiKey = "impiantiElaborati";
 // Incrementa accessi a ogni visita
 window.onload = () => {
 
-fetch("protocollo.json")
+fetch("./protocollo.json")
   .then(response => response.json())
   .then(data => {
     window.protocolData = data;
