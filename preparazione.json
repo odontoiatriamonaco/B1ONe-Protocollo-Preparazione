@@ -1,0 +1,23 @@
+{
+  "paziente": "Mario Rossi",
+  "impianti": [
+    {
+      "dente": "11",
+      "hu": "980",
+      "carico": "compresso",
+      "post": "no",
+      "b1one": "High",
+      "diametro": "3.7",
+      "lunghezza": "12"
+    },
+    {
+      "dente": "21",
+      "hu": "720",
+      "carico": "non compresso",
+      "post": "si",
+      "b1one": "Medium",
+      "diametro": "4.2",
+      "lunghezza": "14"
+    }
+  ]
+}
