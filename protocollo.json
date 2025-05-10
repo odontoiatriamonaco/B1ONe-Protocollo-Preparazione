@@ -1,73 +1,721 @@
 {
-  "2.7": {
-    "High": {
-      "D1": {
-        "fresa": "2.7",
-        "prep": "Completa"
+  "2.7|High": {
+    "D1": {
+      "compresso": {
+        "fresa": "1312rqer",
+        "prep": "efaf"
       },
-      "D2 \u2192 D1": {
-        "fresa": "2.6",
-        "prep": "Completa"
+      "non compresso": {
+        "fresa": "efesd",
+        "prep": "addfa"
+      }
+    },
+    "D2 tendente D1": {
+      "compresso": {
+        "fresa": "sfa",
+        "prep": ""
       },
-      "D2": {
-        "fresa": "2.5",
-        "prep": "Completa"
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
       },
-      "D3 \u2192 D2": {
-        "fresa": "2.3",
-        "prep": "Sottopreparazione"
+      "non compresso": {
+        "fresa": "asdfa",
+        "prep": "afa"
+      }
+    },
+    "D3 tendente D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
       },
-      "D3": {
-        "fresa": "2.3",
-        "prep": "Sottopreparazione"
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D3": {
+      "compresso": {
+        "fresa": "sdfa",
+        "prep": "adsdsf"
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4 tendente D3": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
       }
     }
   },
-  "3.2": {
-    "High": {
-      "D1": {
-        "fresa": "3.2",
-        "prep": "Completa"
+  "3.2|High": {
+    "D1": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
       },
-      "D2 \u2192 D1": {
-        "fresa": "3.0",
-        "prep": "Completa"
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D2 tendente D1": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
       },
-      "D2": {
-        "fresa": "2.8",
-        "prep": "Completa"
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
       },
-      "D3 \u2192 D2": {
-        "fresa": "2.6",
-        "prep": "Sottopreparazione"
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D3 tendente D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
       },
-      "D3": {
-        "fresa": "2.6",
-        "prep": "Sottopreparazione"
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D3": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4 tendente D3": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
       }
     }
   },
-  "3.7": {
-    "High": {
-      "D1": {
-        "fresa": "3.7",
-        "prep": "Completa"
+  "3.7|High": {
+    "D1": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
       },
-      "D2 \u2192 D1": {
-        "fresa": "3.4",
-        "prep": "Completa"
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
       }
     },
-    "Medium": {
-      "D3": {
-        "fresa": "3.0",
-        "prep": "Completa"
+    "D2 tendente D1": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
       }
     },
-    "Low": {
-      "D4": {
-        "fresa": "2.8",
-        "prep": "Sottopreparazione"
+    "D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D3 tendente D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D3": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4 tendente D3": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    }
+  },
+  "3.7|Medium": {
+    "D1": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D2 tendente D1": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D3 tendente D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D3": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4 tendente D3": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    }
+  },
+  "3.7|Low": {
+    "D1": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D2 tendente D1": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D3 tendente D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D3": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4 tendente D3": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    }
+  },
+  "4.2|High": {
+    "D1": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D2 tendente D1": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D3 tendente D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D3": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4 tendente D3": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    }
+  },
+  "4.2|Medium": {
+    "D1": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D2 tendente D1": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D3 tendente D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D3": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4 tendente D3": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    }
+  },
+  "4.2|Low": {
+    "D1": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D2 tendente D1": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D3 tendente D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D3": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4 tendente D3": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    }
+  },
+  "4.8|Medium": {
+    "D1": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D2 tendente D1": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D3 tendente D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D3": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4 tendente D3": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    }
+  },
+  "4.8|Low": {
+    "D1": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D2 tendente D1": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D3 tendente D2": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D3": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4 tendente D3": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
+      }
+    },
+    "D4": {
+      "compresso": {
+        "fresa": "",
+        "prep": ""
+      },
+      "non compresso": {
+        "fresa": "",
+        "prep": ""
       }
     }
   }
