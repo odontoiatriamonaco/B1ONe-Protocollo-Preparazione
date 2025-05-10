@@ -1137,6 +1137,30 @@ const impiantiKey = "impiantiElaborati";
 
 // Incrementa accessi a ogni visita
 window.onload = () => {
+
+fetch("preparazione.json")
+  .then(response => response.json())
+  .then(dati => {
+    document.getElementById('nome').value = dati.paziente || '';
+    document.getElementById('impianti').value = dati.impianti.length;
+    creaCampiImpianti();
+    setTimeout(() => {
+      dati.impianti.forEach((impianto, i) => {
+        document.getElementById(`dente_${i}`).value = impianto.dente || '';
+        document.getElementById(`hu_${i}`).value = impianto.hu || '';
+        document.getElementById(`carico_${i}`).value = impianto.carico || '';
+        document.getElementById(`post_${i}`).value = impianto.post || '';
+        document.getElementById(`b1one_${i}`).value = impianto.b1one || '';
+        document.getElementById(`diametro_${i}`).value = impianto.diametro || '';
+        aggiornaTutto(i);
+        aggiornaOpzioniLunghezza(i);
+        document.getElementById(`lunghezza_${i}`).value = impianto.lunghezza || '';
+      });
+    }, 100);
+  })
+  .catch(err => console.warn("⚠️ File preparazione.json non trovato o errore di lettura.", err));
+
+
   let acc = parseInt(localStorage.getItem(accessiKey)) || 0;
   acc++;
   localStorage.setItem(accessiKey, acc);
