@@ -1,0 +1,74 @@
+{
+  "2.7": {
+    "High": {
+      "D1": {
+        "fresa": "2.7",
+        "prep": "Completa"
+      },
+      "D2 \u2192 D1": {
+        "fresa": "2.6",
+        "prep": "Completa"
+      },
+      "D2": {
+        "fresa": "2.5",
+        "prep": "Completa"
+      },
+      "D3 \u2192 D2": {
+        "fresa": "2.3",
+        "prep": "Sottopreparazione"
+      },
+      "D3": {
+        "fresa": "2.3",
+        "prep": "Sottopreparazione"
+      }
+    }
+  },
+  "3.2": {
+    "High": {
+      "D1": {
+        "fresa": "3.2",
+        "prep": "Completa"
+      },
+      "D2 \u2192 D1": {
+        "fresa": "3.0",
+        "prep": "Completa"
+      },
+      "D2": {
+        "fresa": "2.8",
+        "prep": "Completa"
+      },
+      "D3 \u2192 D2": {
+        "fresa": "2.6",
+        "prep": "Sottopreparazione"
+      },
+      "D3": {
+        "fresa": "2.6",
+        "prep": "Sottopreparazione"
+      }
+    }
+  },
+  "3.7": {
+    "High": {
+      "D1": {
+        "fresa": "3.7",
+        "prep": "Completa"
+      },
+      "D2 \u2192 D1": {
+        "fresa": "3.4",
+        "prep": "Completa"
+      }
+    },
+    "Medium": {
+      "D3": {
+        "fresa": "3.0",
+        "prep": "Completa"
+      }
+    },
+    "Low": {
+      "D4": {
+        "fresa": "2.8",
+        "prep": "Sottopreparazione"
+      }
+    }
+  }
+}
