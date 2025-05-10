@@ -1004,6 +1004,28 @@ function esportaProtocolliPDF() {
   });
 }
 
+
+function aggiornaEditorProtocolliConDati(data) {
+  const editor = document.getElementById("tabelleEditor");
+  if (!editor) return;
+
+  let html = "";
+  for (const diametro in data) {
+    html += `<h3 style="margin-top:20px;">Ø ${diametro}</h3>`;
+    for (const tipo in data[diametro]) {
+      html += `<h4 style="color:#444;">Tipo: ${tipo}</h4>`;
+      html += "<table border='1' style='border-collapse:collapse; width:100%; margin-bottom:20px;'>";
+      html += "<tr><th>Densità</th><th>Fresa Finale</th><th>Preparazione</th></tr>";
+      for (const densita in data[diametro][tipo]) {
+        const row = data[diametro][tipo][densita];
+        html += `<tr><td>${densita}</td><td>${row.fresa}</td><td>${row.prep}</td></tr>`;
+      }
+      html += "</table>";
+    }
+  }
+  editor.innerHTML = html;
+}
+
 </script>
 
 
@@ -1053,6 +1075,28 @@ function esportaProtocolliPDF() {
   });
 }
 
+
+function aggiornaEditorProtocolliConDati(data) {
+  const editor = document.getElementById("tabelleEditor");
+  if (!editor) return;
+
+  let html = "";
+  for (const diametro in data) {
+    html += `<h3 style="margin-top:20px;">Ø ${diametro}</h3>`;
+    for (const tipo in data[diametro]) {
+      html += `<h4 style="color:#444;">Tipo: ${tipo}</h4>`;
+      html += "<table border='1' style='border-collapse:collapse; width:100%; margin-bottom:20px;'>";
+      html += "<tr><th>Densità</th><th>Fresa Finale</th><th>Preparazione</th></tr>";
+      for (const densita in data[diametro][tipo]) {
+        const row = data[diametro][tipo][densita];
+        html += `<tr><td>${densita}</td><td>${row.fresa}</td><td>${row.prep}</td></tr>`;
+      }
+      html += "</table>";
+    }
+  }
+  editor.innerHTML = html;
+}
+
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
 function getImpiantoIdealeLabel(densita, diametro) {
@@ -1100,6 +1144,28 @@ function esportaProtocolliPDF() {
   });
 }
 
+
+function aggiornaEditorProtocolliConDati(data) {
+  const editor = document.getElementById("tabelleEditor");
+  if (!editor) return;
+
+  let html = "";
+  for (const diametro in data) {
+    html += `<h3 style="margin-top:20px;">Ø ${diametro}</h3>`;
+    for (const tipo in data[diametro]) {
+      html += `<h4 style="color:#444;">Tipo: ${tipo}</h4>`;
+      html += "<table border='1' style='border-collapse:collapse; width:100%; margin-bottom:20px;'>";
+      html += "<tr><th>Densità</th><th>Fresa Finale</th><th>Preparazione</th></tr>";
+      for (const densita in data[diametro][tipo]) {
+        const row = data[diametro][tipo][densita];
+        html += `<tr><td>${densita}</td><td>${row.fresa}</td><td>${row.prep}</td></tr>`;
+      }
+      html += "</table>";
+    }
+  }
+  editor.innerHTML = html;
+}
+
 </script>
 <script>
 async function esportaPDF() {
@@ -1143,6 +1209,7 @@ fetch("./protocollo.json")
   .then(data => {
     window.protocolData = data;
     console.log("✅ Dati dei protocolli caricati da protocollo.json:", data);
+    aggiornaEditorProtocolliConDati(data);
   })
   .catch(err => console.warn("⚠️ Errore nel caricamento di protocollo.json", err));
 
@@ -1292,6 +1359,28 @@ function esportaProtocolliPDF() {
 
     pdf.save("Protocolli_Impianti_B1One.pdf");
   });
+}
+
+
+function aggiornaEditorProtocolliConDati(data) {
+  const editor = document.getElementById("tabelleEditor");
+  if (!editor) return;
+
+  let html = "";
+  for (const diametro in data) {
+    html += `<h3 style="margin-top:20px;">Ø ${diametro}</h3>`;
+    for (const tipo in data[diametro]) {
+      html += `<h4 style="color:#444;">Tipo: ${tipo}</h4>`;
+      html += "<table border='1' style='border-collapse:collapse; width:100%; margin-bottom:20px;'>";
+      html += "<tr><th>Densità</th><th>Fresa Finale</th><th>Preparazione</th></tr>";
+      for (const densita in data[diametro][tipo]) {
+        const row = data[diametro][tipo][densita];
+        html += `<tr><td>${densita}</td><td>${row.fresa}</td><td>${row.prep}</td></tr>`;
+      }
+      html += "</table>";
+    }
+  }
+  editor.innerHTML = html;
 }
 
 </script>
@@ -1444,6 +1533,28 @@ function esportaProtocolliPDF() {
   });
 }
 
+
+function aggiornaEditorProtocolliConDati(data) {
+  const editor = document.getElementById("tabelleEditor");
+  if (!editor) return;
+
+  let html = "";
+  for (const diametro in data) {
+    html += `<h3 style="margin-top:20px;">Ø ${diametro}</h3>`;
+    for (const tipo in data[diametro]) {
+      html += `<h4 style="color:#444;">Tipo: ${tipo}</h4>`;
+      html += "<table border='1' style='border-collapse:collapse; width:100%; margin-bottom:20px;'>";
+      html += "<tr><th>Densità</th><th>Fresa Finale</th><th>Preparazione</th></tr>";
+      for (const densita in data[diametro][tipo]) {
+        const row = data[diametro][tipo][densita];
+        html += `<tr><td>${densita}</td><td>${row.fresa}</td><td>${row.prep}</td></tr>`;
+      }
+      html += "</table>";
+    }
+  }
+  editor.innerHTML = html;
+}
+
 </script>
 
 
@@ -1591,6 +1702,28 @@ function esportaProtocolliPDF() {
 
     pdf.save("Protocolli_Impianti_B1One.pdf");
   });
+}
+
+
+function aggiornaEditorProtocolliConDati(data) {
+  const editor = document.getElementById("tabelleEditor");
+  if (!editor) return;
+
+  let html = "";
+  for (const diametro in data) {
+    html += `<h3 style="margin-top:20px;">Ø ${diametro}</h3>`;
+    for (const tipo in data[diametro]) {
+      html += `<h4 style="color:#444;">Tipo: ${tipo}</h4>`;
+      html += "<table border='1' style='border-collapse:collapse; width:100%; margin-bottom:20px;'>";
+      html += "<tr><th>Densità</th><th>Fresa Finale</th><th>Preparazione</th></tr>";
+      for (const densita in data[diametro][tipo]) {
+        const row = data[diametro][tipo][densita];
+        html += `<tr><td>${densita}</td><td>${row.fresa}</td><td>${row.prep}</td></tr>`;
+      }
+      html += "</table>";
+    }
+  }
+  editor.innerHTML = html;
 }
 
 </script>
@@ -1742,6 +1875,28 @@ function esportaProtocolliPDF() {
   });
 }
 
+
+function aggiornaEditorProtocolliConDati(data) {
+  const editor = document.getElementById("tabelleEditor");
+  if (!editor) return;
+
+  let html = "";
+  for (const diametro in data) {
+    html += `<h3 style="margin-top:20px;">Ø ${diametro}</h3>`;
+    for (const tipo in data[diametro]) {
+      html += `<h4 style="color:#444;">Tipo: ${tipo}</h4>`;
+      html += "<table border='1' style='border-collapse:collapse; width:100%; margin-bottom:20px;'>";
+      html += "<tr><th>Densità</th><th>Fresa Finale</th><th>Preparazione</th></tr>";
+      for (const densita in data[diametro][tipo]) {
+        const row = data[diametro][tipo][densita];
+        html += `<tr><td>${densita}</td><td>${row.fresa}</td><td>${row.prep}</td></tr>`;
+      }
+      html += "</table>";
+    }
+  }
+  editor.innerHTML = html;
+}
+
 </script>
 
 <div id="risultati" style="margin:30px 0;"></div>
@@ -1831,6 +1986,28 @@ function esportaProtocolliPDF() {
   });
 }
 
+
+function aggiornaEditorProtocolliConDati(data) {
+  const editor = document.getElementById("tabelleEditor");
+  if (!editor) return;
+
+  let html = "";
+  for (const diametro in data) {
+    html += `<h3 style="margin-top:20px;">Ø ${diametro}</h3>`;
+    for (const tipo in data[diametro]) {
+      html += `<h4 style="color:#444;">Tipo: ${tipo}</h4>`;
+      html += "<table border='1' style='border-collapse:collapse; width:100%; margin-bottom:20px;'>";
+      html += "<tr><th>Densità</th><th>Fresa Finale</th><th>Preparazione</th></tr>";
+      for (const densita in data[diametro][tipo]) {
+        const row = data[diametro][tipo][densita];
+        html += `<tr><td>${densita}</td><td>${row.fresa}</td><td>${row.prep}</td></tr>`;
+      }
+      html += "</table>";
+    }
+  }
+  editor.innerHTML = html;
+}
+
 </script>
 
 
@@ -1916,6 +2093,28 @@ function esportaProtocolliPDF() {
 
     pdf.save("Protocolli_Impianti_B1One.pdf");
   });
+}
+
+
+function aggiornaEditorProtocolliConDati(data) {
+  const editor = document.getElementById("tabelleEditor");
+  if (!editor) return;
+
+  let html = "";
+  for (const diametro in data) {
+    html += `<h3 style="margin-top:20px;">Ø ${diametro}</h3>`;
+    for (const tipo in data[diametro]) {
+      html += `<h4 style="color:#444;">Tipo: ${tipo}</h4>`;
+      html += "<table border='1' style='border-collapse:collapse; width:100%; margin-bottom:20px;'>";
+      html += "<tr><th>Densità</th><th>Fresa Finale</th><th>Preparazione</th></tr>";
+      for (const densita in data[diametro][tipo]) {
+        const row = data[diametro][tipo][densita];
+        html += `<tr><td>${densita}</td><td>${row.fresa}</td><td>${row.prep}</td></tr>`;
+      }
+      html += "</table>";
+    }
+  }
+  editor.innerHTML = html;
 }
 
 </script>
