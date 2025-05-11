@@ -469,15 +469,6 @@ function creaCampiImpianti() {
       </div>
 
       <div class="form-group">
-        <label for="b1one_${i}">B1One:</label>
-        <select id="b1one_${i}" onchange="aggiornaOpzioniB1One(${i})">
-          <option value="High">High</option>
-          <option value="Medium">Medium</option>
-          <option value="Low">Low</option>
-        </select>
-      </div>
-
-      <div class="form-group">
         <label for="diametro_${i}">Diametro (mm):</label>
         <select id="diametro_${i}" onchange="aggiornaTutto(${i})">
           <option value="2.7">2.7</option>
@@ -498,6 +489,15 @@ function creaCampiImpianti() {
           <option value="14">14</option>
           <option value="15.5">15.5</option>
           <option value="17">17</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="b1one_${i}">B1One:</label>
+        <select id="b1one_${i}" onchange="aggiornaOpzioniB1One(${i})">
+          <option value="High" style="color:red;">High</option>
+          <option value="Medium" style="color:orange;">Medium</option>
+          <option value="Low" style="color:green;">Low</option>
         </select>
       </div>
     `;
