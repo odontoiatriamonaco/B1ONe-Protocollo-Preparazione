@@ -280,6 +280,20 @@
 
 </style>
     
+
+<style>
+@media (max-width: 768px) {
+  .result-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .result-row > div:nth-child(2) {
+    width: 100% !important;
+    height: 4px !important;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -862,19 +876,72 @@ let output = `<h2 style="text-align:center; margin-bottom:20px;">Risultati per: 
     const coloreDensita = getDensitaColor(prep.densita);
     const coloreB1One = getB1OneColor(b1one);
 
-    output += `
-      <div class="result-row">
-        <div class="result-content">
-          <div class="dente">Dente: ${dente}</div>
-          <div class="densita" style="color:${coloreDensita}; text-shadow:1px 1px 2px gray;">Densità: ${prep.densita}</div>
-          ${getImpiantoIdeale(diametro, prep.densita)}<div class="result-block"><strong>Post-estrattivo:</strong> ${post === 'si' ? 'Sì' : 'No'}</div>
-          <div class="result-block"><strong>B1One:</strong> <span style="color:${coloreB1One}; font-weight:bold;">${b1one} Ø${diametro} x ${lunghezza}mm${getCorpoApice(diametro, b1one)}</span></div>
-          <div class="result-block"><strong>Carico immediato:</strong> ${carico === 'compresso' ? 'Sì' : 'No'}</div>
-          <div class="result-block"><strong>Fresa Finale Ø:</strong> ${prep.fresa} mm</div>
-          <div class="result-block"><strong>Preparazione in lunghezza:</strong> ${prep.prep}</div>
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      output += `
+        <div class="result-row" style="display: grid; grid-template-columns: 1fr 4px 1fr; gap: 20px; max-width: 1000px; margin: auto; align-items: start;">
+          <div class="result-content">
+            <div class="dente">Dente: ${dente}</div>
+            <div class="densita" style="color:${coloreDensita}; text-shadow:1px 1px 2px gray;">Densità: ${prep.densita}</div>
+            ${getImpiantoIdeale(diametro, prep.densita)}
+            <div class="result-block"><strong>Post-estrattivo:</strong> ${post === 'si' ? 'Sì' : 'No'}</div>
+            <div class="result-block"><strong>B1One:</strong> <span style="color:${coloreB1One}; font-weight:bold;">${b1one} Ø${diametro} x ${lunghezza}mm${getCorpoApice(diametro, b1one)}</span></div>
+            <div class="result-block"><strong>Carico immediato:</strong> ${carico === 'compresso' ? 'Sì' : 'No'}</div>
+            <div class="result-block"><strong>Fresa Finale Ø:</strong> ${prep.fresa} mm</div>
+            <div class="result-block"><strong>Preparazione in lunghezza:</strong> ${prep.prep}</div>
+          </div>
+          <div style="background-color: #007BFF; height: 100%; border-radius: 2px;"></div>
+          <div style="align-self: start; text-align: center;">
+            ${
+              diametro === "4.8" && b1one === "Medium"
+              ? '<img src="48_Medium.png" style="max-height: 200px; height: auto; width: auto;"><div style="margin-top:8px; font-weight:bold; color:' + coloreB1One + ';">Medium Ø4.8 x ' + lunghezza + 'mm (corpo Ø4,0 apice Ø2,9)</div>'
+              : diametro === "4.8" && b1one === "Low"
+              ? '<img src="48_Low.png" style="max-height: 200px; height: auto; width: auto;"><div style="margin-top:8px; font-weight:bold; color:' + coloreB1One + ';">Low Ø4.8 x ' + lunghezza + 'mm (corpo Ø3,4 apice Ø2,9)</div>'
+              : diametro === "4.2" && b1one === "Low"
+              ? '<img src="42_Low.png" style="max-height: 200px; height: auto; width: auto;"><div style="margin-top:8px; font-weight:bold; color:' + coloreB1One + ';">Low Ø4.2 x ' + lunghezza + 'mm (corpo Ø2,8 apice Ø2,3)</div>'
+              : diametro === "4.2" && b1one === "Medium"
+              ? '<img src="42_Medium.png" style="max-height: 200px; height: auto; width: auto;"><div style="margin-top:8px; font-weight:bold; color:' + coloreB1One + ';">Medium Ø4.2 x ' + lunghezza + 'mm (corpo Ø3,4 apice Ø2,3)</div>'
+              : diametro === "4.2" && b1one === "High"
+              ? '<img src="42_High.png" style="max-height: 200px; height: auto; width: auto;"><div style="margin-top:8px; font-weight:bold; color:' + coloreB1One + ';">High Ø4.2 x ' + lunghezza + 'mm (corpo Ø3,5 apice Ø2,3)</div>'
+              : diametro === "3.7" && b1one === "Low"
+              ? '<img src="37_Low.png" style="max-height: 200px; height: auto; width: auto;"><div style="margin-top:8px; font-weight:bold; color:' + coloreB1One + ';">Low Ø3.7 x ' + lunghezza + 'mm (corpo Ø2,3 apice Ø2,0)</div>'
+              : diametro === "3.7" && b1one === "Medium"
+              ? '<img src="37_Medium.png" style="max-height: 200px; height: auto; width: auto;"><div style="margin-top:8px; font-weight:bold; color:' + coloreB1One + ';">Medium Ø3.7 x ' + lunghezza + 'mm (corpo Ø2,9 apice Ø2,0)</div>'
+              : diametro === "3.7" && b1one === "High"
+              ? '<img src="37_High.png" style="max-height: 200px; height: auto; width: auto;"><div style="margin-top:8px; font-weight:bold; color:' + coloreB1One + ';">High Ø3.7 x ' + lunghezza + 'mm (corpo Ø3,0 apice Ø2,0)</div>'
+              : diametro === "3.2" && b1one === "High"
+              ? '<img src="32_High.png" style="max-height: 200px; height: auto; width: auto;"><div style="margin-top:8px; font-weight:bold; color:' + coloreB1One + ';">High Ø3.2 x ' + lunghezza + 'mm (corpo Ø2,5 apice Ø1,8)</div>'
+              : diametro === "2.7" && b1one === "High"
+              ? '<img src="27_High.png" style="max-height: 200px; height: auto; width: auto;"><div style="margin-top:8px; font-weight:bold; color:' + coloreB1One + ';">High Ø2.7 x ' + lunghezza + 'mm (corpo Ø2,3 apice Ø1,3)</div>'
+              : ''
+            }
+          </div>
         </div>
-      </div>
-    `;
+      `;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
   }
 
   document.getElementById('output').innerHTML = output;
